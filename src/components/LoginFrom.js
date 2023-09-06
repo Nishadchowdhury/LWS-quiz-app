@@ -1,9 +1,9 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import Button from "./Button";
 import Form from "./Form";
 import TextInput from "./TextInput";
-import { useAuth } from "../contexts/AuthContext";
-import { useState } from "react";
 
 function LoginFrom() {
   const { signIn } = useAuth();
@@ -58,7 +58,7 @@ function LoginFrom() {
 
         {error && <p className="error">{error}</p>}
 
-        <div class="info">
+        <div className="info">
           Don't have an account? <Link to={"/singup"}>Sign up</Link>{" "}
           instead.
         </div>

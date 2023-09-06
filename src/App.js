@@ -25,7 +25,7 @@ function App() {
           <Routes>
             <Route path="/" Component={Home} />
             <Route
-              path="/signUp"
+              path="/logIn"
               element={
                 <PublicRoute>
                   <LogIn />
@@ -33,7 +33,7 @@ function App() {
               }
             />
             <Route
-              path="/logIn"
+              path="/signUp"
               element={
                 <PublicRoute>
                   <SignUp />
@@ -50,7 +50,7 @@ function App() {
               }
             />
             <Route
-              path="/result"
+              path="/result/:videoId"
               element={
                 <PrivateRoute>
                   <Result />

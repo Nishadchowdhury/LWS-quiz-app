@@ -8,31 +8,31 @@ import {
 } from "firebase/database";
 import app from "../firebase";
 
-function useQuestionsList(videoId) {
+function useAnswersList(videoId) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [questions, setQuestions] = useState([]);
+  const [answers, setAnswers] = useState([]);
 
   useEffect(() => {
     // database related works
     async function fetchQuestions() {
       const db = getDatabase(app);
-      const questionQuery = query(
-        ref(db, `quiz/${videoId}/questions`),
+      const answersQuery = query(
+        ref(db, `answers/${videoId}/questions`),
         orderByKey()
       );
 
       try {
         setLoading(true);
         setError(false);
-        await get(questionQuery).then(snapshot => {
+        await get(answersQuery).then(snapshot => {
           setLoading(false);
           if (snapshot.exists()) {
             const questionList = Object.values(snapshot.val());
 
             setLoading(false);
             setError(false);
-            setQuestions(questionList);
+            setAnswers(questionList);
           } else {
             setLoading(false);
             setError(false);
@@ -49,6 +49,6 @@ function useQuestionsList(videoId) {
     fetchQuestions();
   }, [videoId]);
 
-  return [questions, loading, error];
+  return [answers, loading, error];
 }
-export default useQuestionsList;
+export default useAnswersList;

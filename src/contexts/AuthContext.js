@@ -12,10 +12,6 @@ import {
 
 const AuthContext = React.createContext();
 
-export function useAuth() {
-  return useContext(AuthContext);
-}
-
 export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(!false);
   const [user, setUser] = useState({});
@@ -73,4 +69,8 @@ export function AuthProvider({ children }) {
       {!loading && children}
     </AuthContext.Provider>
   );
+}
+
+export function useAuth() {
+  return useContext(AuthContext);
 }
