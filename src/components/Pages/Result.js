@@ -27,13 +27,12 @@ function Result() {
       });
 
       if (_.isEqual(correctIndexes, checkedIndexes)) {
-        score = +5;
+        score += 5;
       }
     });
 
     return score;
   }
-  console.log(answers);
   console.log(noq);
 
   const userScore = calculateScore();
@@ -52,20 +51,3 @@ function Result() {
   );
 }
 export default Result;
-
-// answers.forEach((q, i) => {
-//   let correctIndexes = [],
-//     checkedIndexes = [];
-
-//   q.options.forEach((option, i_2) => {
-//     if (option.correct) correctIndexes.push(i_2);
-//     if (noq[i].options[i_2].checked) {
-//       checkedIndexes.push(i_2);
-//       option.checked = true;
-//     }
-//   });
-
-//   if (_.isEqual(correctIndexes, checkedIndexes)) {
-//     score = score + 5;
-//   }
-// });

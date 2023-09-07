@@ -23,8 +23,12 @@ function Videos() {
         {videos.length > 0 &&
           videos?.map(video =>
             video?.noq > 0 ? (
+              // <!-- in to props we can sand an obj also to delivery a state. -->
               <Link
-                to={"/quiz/" + video?.youtubeID}
+                to={{
+                  pathname: "/quiz/" + video?.youtubeID,
+                }}
+                state={{ videoTitle: video.title }}
                 key={video?.youtubeID}
               >
                 <Video
